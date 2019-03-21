@@ -1,10 +1,10 @@
-avinetworks.avicontroller-rhev
+avinetworks.avicontroller-ovirt
 =========
 
 *This role is under development as is **NOT** finished yet*
 **You have been warned!**
 
-Deploys Avi Controllers into a RHEV environment.
+Deploys Avi Controllers into an oVirt environment.
 
 Order of operations:
 * Installs the prereqs
@@ -36,11 +36,11 @@ Example Playbook
 ----------------
 
     ---
-    - hosts: rhev-engine
+    - hosts: ovirt-engine
       gather_facts: false
       vars:
-        con_rhev_user: admin@internal
-        con_rhev_pass: <password>
+        con_ovirt_user: admin@internal
+        con_ovirt_pass: <password>
         iso_storage_domain: <iso_storage>
         controllers:
           - name: ctrl1
@@ -57,14 +57,14 @@ Example Playbook
             gateway: 10.1.1.254
         template:
           name: avi_controller_template
-          cluster: <rhev_compute_cluster>
+          cluster: <ovirt_compute_cluster>
           memory: <in GB>
           cpu: <some>
           network: ovirtmgmt
           storage_domain: hosted_storage
           qcow2: <avi_controller.qcow2>
       roles:
-      - avinetworks.avicontroller-rhev
+      - avinetworks.avicontroller-ovirt
 
 License
 -------
